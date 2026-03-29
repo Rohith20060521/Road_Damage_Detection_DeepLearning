@@ -5,7 +5,14 @@ from typing import List, NamedTuple
 
 import cv2
 import numpy as np
+import numpy as np
+import pandas as pd
 import streamlit as st
+import torch
+import torchvision.transforms as T
+import torchvision.models as models
+import folium
+from streamlit_folium import st_folium
 
 # Deep learning framework
 from ultralytics import YOLO
@@ -36,6 +43,49 @@ if cache_key in st.session_state:
 else:
     net = YOLO(MODEL_LOCAL_PATH)
     st.session_state[cache_key] = net
+
+# Load MiDaS model
+midas_cache_key = "midas_small"
+if midas_cache_key in st.session_state:
+    midas = st.session_state[midas_cache_key]
+    midas_transforms = st.session_state["midas_transforms"]
+else:
+    midas = torch.hub.load("intel-isl/MiDaS", "MiDaS_small")
+    device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
+    midas.to(device)
+    midas.eval()
+    midas_transforms = torch.hub.load("intel-isl/MiDaS", "transforms").small_transform
+    st.session_state[midas_cache_key] = midas
+    st.session_state["midas_transforms"] = midas_transforms
+
+# Initialize Secondary ResNet Classifier
+resnet_cache_key = "resnet_hazard"
+if resnet_cache_key in st.session_state:
+    hazard_classifier = st.session_state[resnet_cache_key]
+else:
+    # Assuming binary classification (e.g., 0: Normal, 1: Critical)
+    hazard_classifier = models.resnet18(weights=None)
+    num_ftrs = hazard_classifier.fc.in_features
+    hazard_classifier.fc = torch.nn.Linear(num_ftrs, 2)
+    
+    # Load your local weights
+    try:
+        hazard_classifier.load_state_dict(torch.load("hazard_classifier.pth"))
+    except FileNotFoundError:
+        pass
+        
+    device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
+    hazard_classifier.to(device)
+    hazard_classifier.eval()
+    st.session_state[resnet_cache_key] = hazard_classifier
+
+# Standard ResNet ImageNet transformation pipeline
+resnet_transforms = T.Compose([
+    T.ToPILImage(),
+    T.Resize((224, 224)),
+    T.ToTensor(),
+    T.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+])
 
 CLASSES = [
     "Longitudinal Crack",
@@ -100,7 +150,53 @@ def processVideo(video_file, score_threshold):
         inferenceBarText = "Performing inference on video, please wait."
         inferenceBar = st.progress(0, text=inferenceBarText)
 
+        # SRIMS Analytics Placeholders
+        metrics_col1, metrics_col2 = st.columns(2)
+        with metrics_col1:
+            rhi_metric = st.empty()
+        with metrics_col2:
+            cost_metric = st.empty()
+
+        # Initial metrics values
+        current_rhi = 100
+        current_cost = 0
+
+        # Function to format cost in Indian Rupee format
+        def format_inr(number):
+            s, *d = str(number).partition(".")
+            r = ",".join([s[x-2:x] for x in range(-3, -len(s), -2)][::-1] + [s[-3:]])
+            return "₹" + "".join([r] + d)
+
+        rhi_metric.metric("Road Health Index (RHI)", current_rhi)
+        cost_metric.metric("Estimated Repair Cost", format_inr(current_cost))
+
+        # Warning Placeholder
+        warning_placeholder = st.empty()
+
         imageLocation = st.empty()
+
+        # Folium Map Setup
+        try:
+            gps_data = pd.read_csv("gps_log.csv")
+            start_lat = gps_data['lat'].iloc[0]
+            start_lon = gps_data['lon'].iloc[0]
+        except Exception as e:
+            # Fallback to center of Hyderabad if CSV missing
+            start_lat, start_lon = 17.44, 78.49
+            gps_data = pd.DataFrame({'timestamp': [], 'lat': [], 'lon': []})
+
+        m = folium.Map(location=[start_lat, start_lon], zoom_start=15)
+        # Store the map placeholder
+        map_placeholder = st.empty()
+        # Initial render
+        with map_placeholder:
+            st_folium(m, height=400, width=700, returned_objects=[])
+
+        # Track added pins to avoid duplicates on paused/slow frames
+        added_pins = set()
+        
+        # Track processed object IDs to avoid counting the same defect across multiple frames
+        processed_ids = set()
 
         # Issue with opencv-python with pip doesn't support h264 codec due to license, so we cant show the mp4 video on the streamlit in the cloud
         # If you can install the opencv through conda using this command, maybe you can render the video for the streamlit
@@ -118,26 +214,162 @@ def processVideo(video_file, score_threshold):
                 # Convert color-chanel
                 frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
 
+                # MiDaS Depth Estimation
+                device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
+                input_batch = midas_transforms(frame).to(device)
+                with torch.no_grad():
+                    prediction = midas(input_batch)
+                    
+                    prediction = torch.nn.functional.interpolate(
+                        prediction.unsqueeze(1),
+                        size=frame.shape[:2],
+                        mode="bicubic",
+                        align_corners=False,
+                    ).squeeze()
+                depth_map = prediction.cpu().numpy()
+                depth_map_resized = cv2.resize(depth_map, (640, 640), interpolation=cv2.INTER_AREA)
+
                 # Perform inference
                 _image = np.array(frame)
 
                 image_resized = cv2.resize(_image, (640, 640), interpolation = cv2.INTER_AREA)
-                results = net.predict(image_resized, conf=score_threshold)
+                results = net.track(image_resized, conf=score_threshold, persist=True, tracker="bytetrack.yaml")
                 
                 # Save the results
+                frame_potholes = 0
+                frame_cracks = 0
+                two_wheeler_hazard_detected = False
+                
+                detections = []
                 for result in results:
                     boxes = result.boxes.cpu().numpy()
-                    detections = [
-                    Detection(
-                        class_id=int(_box.cls),
-                        label=CLASSES[int(_box.cls)],
-                        score=float(_box.conf),
-                        box=_box.xyxy[0].astype(int),
+                    has_masks = result.masks is not None
+                    masks_data = result.masks.data.cpu().numpy() if has_masks else None
+                    
+                    # Extract tracking IDs from the prediction result
+                    track_ids = [None] * len(boxes)
+                    if result.boxes.id is not None:
+                        track_ids = result.boxes.id.int().cpu().tolist()
+                        
+                    for i, _box in enumerate(boxes):
+                        class_id = int(_box.cls[0])
+                        track_id = track_ids[i]
+                        
+                        # Area and Depth Calculation
+                        if has_masks and masks_data is not None:
+                            mask = masks_data[i] > 0.5
+                            pixel_area = np.sum(mask)
+                            average_depth = np.mean(depth_map_resized[mask]) if pixel_area > 0 else 0.0
+                        else:
+                            box_coords_f = _box.xyxy[0]
+                            pixel_area = (box_coords_f[2] - box_coords_f[0]) * (box_coords_f[3] - box_coords_f[1])
+                            average_depth = 10.0 # arbitrary fallback
+                            
+                        # Determine Hazard Label based on volumetric risk
+                        hazard = "Heavy Vehicle Hazard"
+                        if average_depth > 500.0:
+                            hazard = "Severe Two-Wheeler Hazard"
+                            two_wheeler_hazard_detected = True
+                        elif average_depth > 300.0:
+                            hazard = "Two-Wheeler Hazard"
+                            two_wheeler_hazard_detected = True
+
+                        # Only calculate cost/RHI penalty if we have not tracked this specific ID before
+                        if track_id is None or track_id not in processed_ids:
+                            if track_id is not None:
+                                processed_ids.add(track_id)
+                                
+                            volume_estimate = pixel_area * average_depth
+                                
+                            if class_id == 3: # Potholes
+                                frame_potholes += 1
+                                # Flat baseline repair cost + dynamically scaled cost for volume
+                                current_cost += 500 + (volume_estimate * 0.05) 
+                            elif class_id in [0, 1, 2]: # Cracks
+                                frame_cracks += 1
+                                current_cost += 100 + (volume_estimate * 0.02)
+                            
+                        # Calculate box width
+                        box_coords = _box.xyxy[0].astype(int)
+                        
+                        # ResNet Cropping & Inference
+                        x1, y1, x2, y2 = box_coords
+                        y1, y2 = max(0, y1), min(frame.shape[0], y2)
+                        x1, x2 = max(0, x1), min(frame.shape[1], x2)
+                        
+                        crop = frame[y1:y2, x1:x2]
+                        
+                        hazard_prob = 0.0
+                        if crop.size > 0:
+                            crop_tensor = resnet_transforms(crop).unsqueeze(0).to(device)
+                            with torch.no_grad():
+                                output = hazard_classifier(crop_tensor)
+                                probs = torch.nn.functional.softmax(output, dim=1) 
+                                hazard_prob = probs[0][1].item()
+                                
+                        if hazard_prob > 0.80:
+                            hazard = "Critical Risk"
+                            two_wheeler_hazard_detected = True
+                        else:
+                            pass # default fall back to MiDaS hazard logic
+                        
+                        # Overload the result object's name for plotting
+                        # Ultralytics uses the model's names dictionary for plotting
+                        orig_label = CLASSES[class_id]
+                        new_label = f"{orig_label} - {hazard} ({hazard_prob:.2f})"
+                        # A hack to temporarily override the class name for this specific result object's plotting
+                        result.names[class_id] = new_label
+
+                        detections.append(
+                            Detection(
+                                class_id=class_id,
+                                label=new_label,
+                                score=float(_box.conf[0]),
+                                box=box_coords,
+                            )
                         )
-                        for _box in boxes
-                    ]
+
+                # Update Analytics
+                if frame_potholes > 0 or frame_cracks > 0:
+                    current_rhi -= (frame_potholes * 10 + frame_cracks * 2)
+                    current_cost += (frame_potholes * 1500 + frame_cracks * 500)
+                    rhi_metric.metric("Road Health Index (RHI)", current_rhi)
+                    cost_metric.metric("Estimated Repair Cost", format_inr(current_cost))
+                    
+                if two_wheeler_hazard_detected:
+                    warning_placeholder.warning("High Risk for Bikes/Scooters Detected!", icon="⚠️")
+                else:
+                    warning_placeholder.empty()
+
+                # Geospatial Mapping Update
+                if (frame_potholes > 0 or frame_cracks > 0) and not gps_data.empty:
+                    # Calculate current video timestamp in seconds
+                    current_vs_time = _frame_counter / _fps
+                    # Find nearest timestamp in GPS log
+                    idx = (np.abs(gps_data['timestamp'] - current_vs_time)).idxmin()
+                    nearest_lat = gps_data.loc[idx, 'lat']
+                    nearest_lon = gps_data.loc[idx, 'lon']
+                    
+                    loc_tuple = (nearest_lat, nearest_lon)
+                    if loc_tuple not in added_pins:
+                        folium.Marker(
+                            [nearest_lat, nearest_lon],
+                            popup="Defect Detected",
+                            icon=folium.Icon(color="red", icon="info-sign"),
+                        ).add_to(m)
+                        added_pins.add(loc_tuple)
+                        # Re-render map in placeholder
+                        with map_placeholder:
+                            st_folium(m, height=400, width=700, returned_objects=[])
 
                 annotated_frame = results[0].plot()
+                
+                # Restore original class names to model so it doesn't permanently overwrite the dictionary
+                for i, name in enumerate(CLASSES):
+                    net.names[i] = name
+                    if len(results) > 0:
+                        results[0].names[i] = name
+                
                 _image_pred = cv2.resize(annotated_frame, (_width, _height), interpolation = cv2.INTER_AREA)
 
                 print(_image_pred.shape)

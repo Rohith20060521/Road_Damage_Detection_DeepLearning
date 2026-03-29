@@ -82,7 +82,7 @@ def video_frame_callback(frame: av.VideoFrame) -> av.VideoFrame:
            Detection(
                class_id=int(_box.cls),
                label=CLASSES[int(_box.cls)],
-               score=float(_box.conf),
+               score=float(_box.conf[0]),
                box=_box.xyxy[0].astype(int),
             )
             for _box in boxes
