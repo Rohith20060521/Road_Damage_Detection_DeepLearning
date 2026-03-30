@@ -1,46 +1,125 @@
 import streamlit as st
 
 st.set_page_config(
-    page_title="Road Damage Detections Apps",
-    page_icon="🛣️",
+    page_title="Road Damage Detection using UAV and Deep Learning",
+    page_icon="🚧",
+    layout="wide"
 )
 
-st.image("./resource/banner.png", use_column_width="always")
-st.divider()
-st.title("Road Damage Detection Application")
+st.markdown("""
+<style>
+.main {
+    background-color: #0E1117;
+}
 
-st.markdown(
-    """
-    Introducing our Road Damage Detection Apps, powered by the YOLOv8 deep learning model trained on Crowdsensing-based Road Damage Detection Challenge 2022 Dataset.
-    
-    This application is designed to enhance road safety and infrastructure maintenance by swiftly identifying and categorizing various forms of road damage, such as potholes and cracks.
+h1, h2, h3 {
+    color: #FFFFFF;
+}
 
-    There is four types of damage that this model can detects such as:
-    - Longitudinal Crack
-    - Transverse Crack
-    - Alligator Crack
-    - Potholes
+.stButton>button {
+    background-color: #FF4B4B;
+    color: white;
+    border-radius: 10px;
+    height: 3em;
+    width: 100%;
+    font-size: 16px;
+}
 
-    The model trained on YOLOv8 small model on Japan and India CRDDC2022 dataset.
+.metric-box {
+    background-color: #1E1E1E;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    color: white;
+    font-size: 18px;
+}
 
-    You can select the apps from the sidebar to try and experiment with any kind of input **(realtime-webcam, video and images)** depends on your use case.
+.block-container {
+    padding-top: 2rem;
+}
+</style>
+""", unsafe_allow_html=True)
 
-    #### Documentations and Links
-    - Github Project Page [Github](https://github.com/oracl4/RoadDamageDetection)
-    - You can reach me on it.mahdi.yusuf@gmail.com
+st.markdown("<h1 style='text-align:center;'>🚧 Road Damage Detection System</h1>", unsafe_allow_html=True)
+st.markdown("<p style='text-align:center; color:gray;'>AI-powered analysis using UAV imagery and YOLOv8</p>", unsafe_allow_html=True)
 
-    #### License and Citations
-    - Road Damage Dataset from Crowdsensing-based Road Damage Detection Challenge (CRDDC2022)
-    - All rights reserved on YOLOv8 license permits by [Ultralytics](https://github.com/ultralytics/ultralytics) and [Streamlit](https://streamlit.io/) framework
-"""
-)
+st.markdown("---")
 
-st.divider()
+col1, col2, col3 = st.columns(3)
 
-st.markdown(
-    """
-    This project is created for the [Road Damage Detection Challenge](https://s.id/RDDHariJalan23) by [Ministry of Public Works and Housing](https://pu.go.id/) for celebrating the "Peringatan Hari Jalan 2023".
-    """
-    
-)
+col1.markdown("<div class='metric-box'>⚡ Fast Detection<br><b>Real-time</b></div>", unsafe_allow_html=True)
+col2.markdown("<div class='metric-box'>🎯 High Accuracy<br><b>YOLOv8 Model</b></div>", unsafe_allow_html=True)
+col3.markdown("<div class='metric-box'>📊 Multi Input<br><b>Image / Video / Webcam</b></div>", unsafe_allow_html=True)
 
+st.markdown("---")
+
+st.markdown("## 📌 Project Overview")
+
+st.write("""
+This project presents an AI-based system for detecting road damages using UAV (drone) imagery and deep learning techniques.
+
+The system leverages the YOLOv8 model to identify and classify different types of road damages such as cracks and potholes from images, videos, and real-time inputs.
+""")
+
+st.markdown("---")
+
+st.markdown("## 🚀 Features")
+
+col1, col2 = st.columns(2)
+
+col1.markdown("""
+### 🔍 Detection
+- 📷 Image Detection  
+- 🎥 Video Detection  
+- 🎯 Real-time Detection  
+""")
+
+col2.markdown("""
+### ⚙️ System
+- ⚡ Fast YOLOv8 Inference  
+- 🧠 Deep Learning Model  
+- 📊 Interactive Dashboard  
+""")
+
+st.markdown("---")
+
+st.markdown("## 🛠️ Damage Types")
+
+col1, col2 = st.columns(2)
+
+col1.markdown("""
+- Longitudinal Crack  
+- Transverse Crack  
+""")
+
+col2.markdown("""
+- Alligator Crack  
+- Potholes  
+""")
+
+st.markdown("---")
+
+st.markdown("## 🧑‍💻 How It Works")
+
+st.markdown("""
+1️⃣ Select module from sidebar  
+2️⃣ Upload input (image/video/webcam)  
+3️⃣ AI detects road damage  
+4️⃣ View results with bounding boxes & metrics  
+""")
+
+st.markdown("---")
+
+st.markdown("## ⚙️ Tech Stack")
+
+st.markdown("""
+- 🐍 Python  
+- 🎨 Streamlit  
+- 🤖 YOLOv8 (Ultralytics)  
+- 📷 OpenCV  
+- 🔥 PyTorch  
+""")
+
+st.markdown("---")
+
+st.markdown("<p style='text-align:center; color:gray;'>Built using Deep Learning for Smart Infrastructure Monitoring</p>", unsafe_allow_html=True)
