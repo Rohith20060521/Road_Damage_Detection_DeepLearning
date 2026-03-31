@@ -159,7 +159,7 @@ if image_file:
             buffer.getvalue(),
             file_name="SRIMS_Diagnostic.png",
             mime="image/png",
-            use_container_width=True
+            width='stretch'
         )
     
     if len(results[0].boxes) > 0:

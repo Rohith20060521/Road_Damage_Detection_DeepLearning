@@ -124,7 +124,7 @@ if webrtc_ctx.state.playing:
 
                     log_detection("live_stream.png", jitter_lat, jitter_lon, location_label, det.label, det.score, "webcam")
                 
-                labels_placeholder.dataframe(result, use_container_width=True)
+                labels_placeholder.dataframe(result, width='stretch')
         except queue.Empty:
             if not webrtc_ctx.state.playing:
                 break

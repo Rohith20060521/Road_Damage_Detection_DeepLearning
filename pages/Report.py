@@ -149,7 +149,7 @@ st.download_button(
     data=pdf_bytes,
     file_name=f"SRIMS_Audit_{datetime.now().strftime('%Y%m%d')}.pdf",
     mime="application/pdf",
-    use_container_width=True
+    width='stretch'
 )
 st.markdown('</div>', unsafe_allow_html=True)
 
@@ -159,7 +159,7 @@ st.divider()
 st.markdown("### <i class='fa-solid fa-database' style='color: var(--primary-blue);'></i> Master Operational Log", unsafe_allow_html=True)
 st.dataframe(
     df, 
-    use_container_width=True, 
+    width='stretch', 
     hide_index=True,
     column_config={
         "confidence": st.column_config.ProgressColumn("Accuracy", min_value=0, max_value=1),

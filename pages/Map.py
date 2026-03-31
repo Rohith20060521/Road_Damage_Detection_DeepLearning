@@ -131,7 +131,7 @@ if not filtered_df.empty:
     folium.LayerControl().add_to(m)
     
     # Render with Streamlit
-    st_folium(m, use_container_width=True, height=600)
+    st_folium(m, width='stretch', height=600)
 else:
     st.info("No data points match current tactical filters.")
 
@@ -140,7 +140,7 @@ st.markdown("<br>", unsafe_allow_html=True)
 with st.expander("<i class='fa-solid fa-table-list'></i> Spatial Registry", expanded=False):
     st.dataframe(
         filtered_df,
-        use_container_width=True,
+        width='stretch',
         hide_index=True,
         column_config={
             "confidence": st.column_config.ProgressColumn("Accuracy", min_value=0, max_value=1),

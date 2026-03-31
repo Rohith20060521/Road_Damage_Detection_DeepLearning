@@ -161,7 +161,7 @@ if video and st.button("🚀 INITIATE NEURAL PROCESSING"):
             cost_box.metric("Estimated Liability", f"₹{int(cost)}")
             
             # Display live feed
-            video_placeholder.image(cv2.cvtColor(annotated, cv2.COLOR_BGR2RGB), use_container_width=True)
+            video_placeholder.image(cv2.cvtColor(annotated, cv2.COLOR_BGR2RGB), width='stretch')
             
             if hazards_found:
                 hazard_log.code("\n".join(hazards_found[-5:]), language="text")

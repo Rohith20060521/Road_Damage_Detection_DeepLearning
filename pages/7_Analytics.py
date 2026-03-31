@@ -128,7 +128,7 @@ with col1:
                     template="plotly_white",
                     title="Active Hazard Severity Split")
     fig_sev.update_layout(margin=dict(t=40, b=40, l=40, r=40))
-    st.plotly_chart(fig_sev, use_container_width=True)
+    st.plotly_chart(fig_sev, width='stretch')
 
 with col2:
     loc_counts = active_df.groupby('location_label').size().reset_index(name='count')
@@ -137,4 +137,4 @@ with col2:
                     title="Hazard density by sector", 
                     color='count', color_continuous_scale="Blues")
     fig_loc.update_layout(margin=dict(t=40, b=40, l=40, r=40))
-    st.plotly_chart(fig_loc, use_container_width=True)
+    st.plotly_chart(fig_loc, width='stretch')

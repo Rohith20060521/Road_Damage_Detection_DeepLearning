@@ -55,7 +55,7 @@ with tab1:
     st.markdown("### <i class='fa-solid fa-magnifying-glass-location'></i> Tactical Distribution", unsafe_allow_html=True)
     st.dataframe(
         active_df[['location_label', 'damage_type', 'severity', 'confidence', 'status']], 
-        use_container_width=True,
+        width='stretch',
         column_config={
             "confidence": st.column_config.ProgressColumn("Accuracy", min_value=0, max_value=1),
             "severity": st.column_config.TextColumn("Risk Level")
@@ -87,9 +87,12 @@ with tab2:
                     """, unsafe_allow_html=True)
                 
                 with c2:
-                    if st.button(f"RESOLVE TASK", key=f"fin_{row['task_id']}", use_container_width=True):
+                    if st.button(f"RESOLVE TASK", key=f"fin_{row['task_id']}", width='stretch'):
                         idx_orig = df[df['task_id'] == row['task_id']].index
                         df.at[idx_orig[0], 'status'] = "Resolved"
-                        save_data(df.drop(columns=['prio_val']))
+                        if 'prio_val' in df.columns:
+                            save_data(df.drop(columns=['prio_val']))
+                        else:
+                            save_data(df)
                         st.toast(f"✅ Hazard {row['task_id']} successfully resolved.")
                         st.rerun()

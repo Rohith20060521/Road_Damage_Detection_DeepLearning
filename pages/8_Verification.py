@@ -71,7 +71,7 @@ with c1:
     
     if repair_img:
         st.markdown('<div class="action-btn">', unsafe_allow_html=True)
-        if st.button("🚀 SIGN OFF & CLOSE TASK", use_container_width=True):
+        if st.button("🚀 SIGN OFF & CLOSE TASK", width='stretch'):
             idx = df[df['task_id'] == task_selection].index
             df.at[idx[0], 'status'] = 'Resolved'
             df.to_csv("gps_log.csv", index=False)
@@ -85,7 +85,7 @@ with c2:
     
     if repair_img:
         st.info("Cross-referencing verification asset with reported spatial delta...")
-        st.image(repair_img, caption=f"Rectified Surface: Task {task_selection}", use_container_width=True)
+        st.image(repair_img, caption=f"Rectified Surface: Task {task_selection}", width='stretch')
     else:
         st.markdown(f"""
         <div style="height: 300px; border: 2px dashed var(--border-slate-200); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--text-slate-600); background: var(--bg-white);">
