@@ -64,7 +64,7 @@ col_menu_1, col_menu_2 = st.columns([2, 1])
 with col_menu_1:
     st.markdown("### <i class='fa-solid fa-upload'></i> Source Media", unsafe_allow_html=True)
     video = st.file_uploader("Upload Infrastructure Footage", type="mp4")
-    conf = st.slider("Neural Confidence Threshold", 0.0, 1.0, 0.3, 0.05)
+    conf = st.slider("Neural Confidence Threshold", 0.0, 1.0, 0.15, 0.05)
 
 with col_menu_2:
     st.markdown("### <i class='fa-solid fa-location-dot'></i> Deployment Context", unsafe_allow_html=True)
@@ -123,15 +123,17 @@ if video and st.button("🚀 INITIATE NEURAL PROCESSING"):
             break
 
         if frame_count % 15 == 0:
-            resized = cv2.resize(frame, (640, 640))
-            results = net.predict(resized, conf=conf, verbose=False)
+            results = net.predict(frame, conf=conf, verbose=False)
+            annotated = frame.copy()
             
             for r in results:
                 for b in r.boxes.cpu().numpy():
                     cls = int(b.cls[0])
                     conf_score = float(b.conf[0])
                     x1, y1, x2, y2 = b.xyxy[0]
-                    area = (x2 - x1) * (y2 - y1) / 1000
+                    box_w = (x2 - x1) * (640.0 / width)
+                    box_h = (y2 - y1) * (640.0 / height)
+                    area = box_w * box_h / 1000
 
                     if cls == 3: # Pothole
                         if area < 5: c, impact = 1500, 5
@@ -151,9 +153,15 @@ if video and st.button("🚀 INITIATE NEURAL PROCESSING"):
                     log_detection(video.name, jitter_lat, jitter_lon, location_label, CLASSES[cls], conf_score, "video")
                     hazards_found.append(f"{CLASSES[cls]} ({int(conf_score*100)}%)")
 
+                    # Custom bounding box overrides
+                    color = (147, 20, 255) if cls == 3 else (0, 0, 255) # DeepPink for pothole, Red for others (BGR format)
+                    cv2.rectangle(annotated, (int(x1), int(y1)), (int(x2), int(y2)), color, 3)
+                    label = f"{CLASSES[cls]} {conf_score:.2f}"
+                    (txt_w, txt_h), _ = cv2.getTextSize(label, cv2.FONT_HERSHEY_SIMPLEX, 0.6, 2)
+                    cv2.rectangle(annotated, (int(x1), int(y1) - txt_h - 10), (int(x1) + txt_w, int(y1)), color, -1)
+                    cv2.putText(annotated, label, (int(x1), int(y1) - 5), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 255), 2)
+
             rhi = max(rhi, 0)
-            annotated = results[0].plot()
-            annotated = cv2.resize(annotated, (width, height))
             out.write(annotated)
             
             # Update metrics in Navy/Cyan style
@@ -176,7 +184,7 @@ if video and st.button("🚀 INITIATE NEURAL PROCESSING"):
 
     if os.path.exists(output_path):
         st.divider()
-        st.subheader("<i class='fa-solid fa-clapperboard'></i> Full Processed Audit", unsafe_allow_html=True)
+        st.markdown("### <i class='fa-solid fa-clapperboard'></i> Full Processed Audit", unsafe_allow_html=True)
         with open(output_path, "rb") as f:
             video_bytes = f.read()
         st.video(video_bytes)

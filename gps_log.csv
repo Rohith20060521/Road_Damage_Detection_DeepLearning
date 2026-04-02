@@ -1,31 +1,163 @@
 filename,lat,lon,location_label,damage_type,confidence,severity,media_type,status,task_id
-Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38492631926505,78.48673650302727,Hyderabad,Potholes,0.41,low,video,Resolved,8894146d
-Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384916509665654,78.48677778192612,Hyderabad,Potholes,0.65,medium,video,Pending,e29555c6
-Watch Video_ Terrible potholes in Rangoon Road.mp4,17.3849054754054,78.48660232171983,Hyderabad,Potholes,0.79,medium,video,Pending,30dae2cb
-Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384996145590595,78.48679058361328,Hyderabad,Potholes,0.31,low,video,Pending,8e6b22df
-Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38496301996644,78.48670403132482,Hyderabad,Potholes,0.57,medium,video,Pending,611c1d82
-Watch Video_ Terrible potholes in Rangoon Road.mp4,17.385063837007348,78.48671532844354,Hyderabad,Potholes,0.77,medium,video,Pending,db58a3d9
-Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38508007494954,78.48662600505718,Hyderabad,Potholes,0.69,medium,video,Pending,6499a0d8
-Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384942634638353,78.48665335358959,Hyderabad,Potholes,0.63,medium,video,Pending,1a937a5f
-Watch Video_ Terrible potholes in Rangoon Road.mp4,17.385079169842648,78.48668042069212,Hyderabad,Potholes,0.6,medium,video,Pending,b159bf6d
-Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38506905493589,78.4866473343988,Hyderabad,Potholes,0.5,low,video,Pending,12c2c6c7
-Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38497512957579,78.48660191440888,Hyderabad,Potholes,0.82,high,video,Pending,0e64fd42
-Watch Video_ Terrible potholes in Rangoon Road.mp4,17.385046837468224,78.48678775900053,Hyderabad,Potholes,0.78,medium,video,Pending,0209177d
-Watch Video_ Terrible potholes in Rangoon Road.mp4,17.385075001078643,78.48675807602481,Hyderabad,Potholes,0.63,medium,video,Pending,7e5849c5
-Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384983618828905,78.48660209015657,Hyderabad,Potholes,0.43,low,video,Pending,74cd2735
-Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384993703129496,78.48665720628571,Hyderabad,Potholes,0.68,medium,video,Pending,0c13f95f
-Watch Video_ Terrible potholes in Rangoon Road.mp4,17.385043346655443,78.48670935058239,Hyderabad,Potholes,0.65,medium,video,Pending,f53610ca
-Watch Video_ Terrible potholes in Rangoon Road.mp4,17.385055297676523,78.48678771497909,Hyderabad,Longitudinal Crack,0.37,low,video,Pending,ca762203
-Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384932581917816,78.48670225215633,Hyderabad,Longitudinal Crack,0.43,low,video,Pending,2bbffebb
-Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384934162265562,78.4867130626876,Hyderabad,Potholes,0.39,low,video,Pending,dfab3d23
-Watch Video_ Terrible potholes in Rangoon Road.mp4,17.385051800471455,78.48666791861865,Hyderabad,Potholes,0.52,medium,video,Pending,81f22f75
-Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38502963836766,78.48660026648444,Hyderabad,Longitudinal Crack,0.33,low,video,Pending,f876debb
-Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384921772746367,78.48668105354453,Hyderabad,Potholes,0.59,medium,video,Pending,a3011ecf
-Watch Video_ Terrible potholes in Rangoon Road.mp4,17.385086394879366,78.4866209773859,Hyderabad,Potholes,0.86,high,video,Pending,79cbe852
-Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38500648505241,78.48666990586845,Hyderabad,Potholes,0.82,high,video,Pending,ee1a4d08
-Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384946501427798,78.48665142677046,Hyderabad,Potholes,0.84,high,video,Pending,b68b1804
-Watch Video_ Terrible potholes in Rangoon Road.mp4,17.385059124230743,78.48666215243274,Hyderabad,Potholes,0.84,high,video,Pending,55abacd8
-Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38509879583758,78.48663430198984,Hyderabad,Potholes,0.76,medium,video,Pending,1aad5e42
-Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384935157098095,78.48664968875559,Hyderabad,Potholes,0.53,medium,video,Pending,65d72481
-Watch Video_ Terrible potholes in Rangoon Road.mp4,17.385018689249875,78.48666821079436,Hyderabad,Potholes,0.36,low,video,Pending,3e5a836e
-Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38493888775624,78.48675591659028,Hyderabad,Potholes,0.38,low,video,Pending,e7e7cea0
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38501408873211,78.48660490536969,Hyderabad Hub,Potholes,0.2,low,video,Pending,7102b6d6
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384990454918285,78.4866626491741,Hyderabad Hub,Potholes,0.19,low,video,Pending,40217d55
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38490719114968,78.48664077839976,Hyderabad Hub,Potholes,0.6,medium,video,Pending,324fbd92
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38498002541812,78.4867733166341,Hyderabad Hub,Potholes,0.25,low,video,Pending,aecdd58a
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.385099847921598,78.4867224077512,Hyderabad Hub,Potholes,0.73,medium,video,Pending,8661e60c
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.385035537646573,78.48669269119641,Hyderabad Hub,Potholes,0.57,medium,video,Pending,e2912f95
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384919608614833,78.4866231678702,Hyderabad Hub,Potholes,0.22,low,video,Pending,4a096b6f
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384945132920013,78.48664258906837,Hyderabad Hub,Potholes,0.71,medium,video,Pending,57a0935d
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38493214294337,78.48669760783635,Hyderabad Hub,Potholes,0.65,medium,video,Pending,48f992fd
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38501457547646,78.48664491794612,Hyderabad Hub,Potholes,0.69,medium,video,Pending,b8c5c7fd
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38490660745728,78.48666866438646,Hyderabad Hub,Potholes,0.57,medium,video,Pending,c609fe61
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.385055864922013,78.48675943632574,Hyderabad Hub,Potholes,0.35,low,video,Pending,e5a8a544
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.385057305695632,78.48677610935714,Hyderabad Hub,Potholes,0.67,medium,video,Pending,4c9d87fb
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.385098778298744,78.4866272558365,Hyderabad Hub,Potholes,0.48,low,video,Pending,9d25dc0f
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38508964433202,78.48673127550772,Hyderabad Hub,Potholes,0.48,low,video,Pending,3ae0d98a
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384984024122584,78.48664548191442,Hyderabad Hub,Potholes,0.21,low,video,Pending,8f3652ad
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38494419277738,78.48670051138986,Hyderabad Hub,Potholes,0.2,low,video,Pending,91ef69db
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38491821601818,78.48661939161211,Hyderabad Hub,Potholes,0.33,low,video,Pending,bf3ae55b
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.385055897892656,78.48667256467436,Hyderabad Hub,Potholes,0.32,low,video,Pending,2b1d6c3c
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38494109989069,78.48665337040977,Hyderabad Hub,Potholes,0.2,low,video,Pending,9c452855
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.3849886132926,78.48670909596133,Hyderabad Hub,Potholes,0.37,low,video,Pending,b73038c9
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.3850282198894,78.48678471758713,Hyderabad Hub,Alligator Crack,0.32,low,video,Pending,42782363
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.385013024361598,78.48664316439256,Hyderabad Hub,Alligator Crack,0.27,low,video,Pending,a1dae2c8
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.385023509373617,78.4867946481426,Hyderabad Hub,Alligator Crack,0.15,low,video,Pending,8ab7c909
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38494188498934,78.48663670832148,Hyderabad Hub,Potholes,0.6,medium,video,Pending,0061ccd4
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.385044094526865,78.48670617046538,Hyderabad Hub,Potholes,0.42,low,video,Pending,fe3698da
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.385064009397553,78.48662913945081,Hyderabad Hub,Alligator Crack,0.32,low,video,Pending,77834631
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38505922436501,78.48673568402961,Hyderabad Hub,Alligator Crack,0.18,low,video,Pending,169a3083
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38492979086685,78.48665322500541,Hyderabad Hub,Alligator Crack,0.15,low,video,Pending,dff7e0df
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38500933337435,78.48665344724924,Hyderabad Hub,Alligator Crack,0.58,medium,video,Pending,bc723de1
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384929483834224,78.48670272515233,Hyderabad Hub,Potholes,0.24,low,video,Pending,9bcdf594
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.3850012536097,78.48667741275987,Hyderabad Hub,Potholes,0.59,medium,video,Pending,a5eaad6d
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384926120182485,78.48678964912644,Hyderabad Hub,Alligator Crack,0.48,low,video,Pending,90a07b43
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384917506182532,78.48662054892985,Hyderabad Hub,Potholes,0.38,low,video,Pending,0ca4e563
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.385095430510752,78.48662808089084,Hyderabad Hub,Potholes,0.18,low,video,Pending,26c60a1d
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38497802856673,78.48670349268635,Hyderabad Hub,Alligator Crack,0.16,low,video,Pending,27a7ddad
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.385094504110658,78.486678599864,Hyderabad Hub,Potholes,0.47,low,video,Pending,f01ba703
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384915478107352,78.48668095690005,Hyderabad Hub,Potholes,0.22,low,video,Pending,c7720880
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.385049164583393,78.48661003880514,Hyderabad Hub,Potholes,0.56,medium,video,Pending,1ce5bb9b
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384956789607365,78.48665101843376,Hyderabad Hub,Alligator Crack,0.41,low,video,Pending,ac541135
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384992828825002,78.48665400258336,Hyderabad Hub,Potholes,0.2,low,video,Pending,8848bf7f
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384985637057728,78.48675628254988,Hyderabad Hub,Potholes,0.52,medium,video,Pending,c63a0d45
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38507839630767,78.4866581961442,Hyderabad Hub,Alligator Crack,0.36,low,video,Pending,7823e172
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384934169720857,78.48679801414092,Hyderabad Hub,Alligator Crack,0.24,low,video,Pending,3a809901
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38500103280241,78.48665806094408,Hyderabad Hub,Potholes,0.7,medium,video,Pending,7a00a658
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384963952048267,78.48667110105849,Hyderabad Hub,Alligator Crack,0.21,low,video,Pending,ac418ed5
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.385067093552696,78.48678170005884,Hyderabad Hub,Potholes,0.69,medium,video,Pending,7b058da9
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38502442837414,78.48675471710023,Hyderabad Hub,Potholes,0.43,low,video,Pending,14b6aae0
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38499630143152,78.48661120587063,Hyderabad Hub,Alligator Crack,0.29,low,video,Pending,78979b83
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.385076974192327,78.48671060878391,Hyderabad Hub,Alligator Crack,0.17,low,video,Pending,6bb02b23
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.385097792525773,78.48666141938043,Hyderabad Hub,Alligator Crack,0.17,low,video,Pending,7a107bf2
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384939734189032,78.48661546977391,Hyderabad Hub,Potholes,0.16,low,video,Pending,4b13515b
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384998199274392,78.48666667996956,Hyderabad Hub,Potholes,0.51,medium,video,Pending,774c554d
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.385083596306927,78.4867692200398,Hyderabad Hub,Potholes,0.5,low,video,Pending,9290aa7e
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384920721254435,78.48660062282354,Hyderabad Hub,Alligator Crack,0.46,low,video,Pending,4dfdee52
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38508956271919,78.48677462113204,Hyderabad Hub,Potholes,0.25,low,video,Pending,baadd9cb
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384919288867415,78.48675203528818,Hyderabad Hub,Potholes,0.19,low,video,Pending,90ffef1d
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384912214486082,78.48667785143239,Hyderabad Hub,Potholes,0.18,low,video,Pending,6edbbeaf
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384901554057958,78.4866996000884,Hyderabad Hub,Alligator Crack,0.16,low,video,Pending,27a10a1c
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38508225634004,78.48664984069934,Hyderabad Hub,Potholes,0.22,low,video,Pending,968697a6
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38497279009248,78.48660559236806,Hyderabad Hub,Potholes,0.26,low,video,Pending,2ca97ca6
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384952882533018,78.48671379664331,Hyderabad Hub,Potholes,0.23,low,video,Pending,6efdc6da
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.385084051153456,78.48666376473835,Hyderabad Hub,Potholes,0.42,low,video,Pending,16d74994
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384931822374043,78.48663114903671,Hyderabad Hub,Potholes,0.25,low,video,Pending,e128af42
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38509280111878,78.48667845467654,Hyderabad Hub,Potholes,0.24,low,video,Pending,24cbf63d
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38509880232898,78.4867050794866,Hyderabad Hub,Potholes,0.28,low,video,Pending,87b11fea
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.385019882997266,78.48661811587122,Hyderabad Hub,Longitudinal Crack,0.26,low,video,Pending,929d214d
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38501573824748,78.48664806736295,Hyderabad Hub,Potholes,0.25,low,video,Pending,b7298e56
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384929878106327,78.48674449201548,Hyderabad Hub,Longitudinal Crack,0.23,low,video,Pending,e29374ca
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384995257191722,78.4866609824999,Hyderabad Hub,Potholes,0.22,low,video,Pending,5dc697d3
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38494320503993,78.4867067472919,Hyderabad Hub,Potholes,0.21,low,video,Pending,dc4b98fa
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.385048372642437,78.48675265161727,Hyderabad Hub,Alligator Crack,0.16,low,video,Pending,da6a8afd
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.385039008910848,78.48677155610117,Hyderabad Hub,Potholes,0.66,medium,video,Pending,c660fc1d
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38490663670705,78.48664393413655,Hyderabad Hub,Longitudinal Crack,0.39,low,video,Pending,eb3a2c97
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38502687204938,78.48670542771407,Hyderabad Hub,Potholes,0.22,low,video,Pending,0f03e076
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.385026877235056,78.48675785279158,Hyderabad Hub,Potholes,0.62,medium,video,Pending,93952252
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.385040284193643,78.48679869616008,Hyderabad Hub,Longitudinal Crack,0.56,medium,video,Pending,f5cb2381
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.3850398568117,78.48660915200999,Hyderabad Hub,Alligator Crack,0.26,low,video,Pending,c8c0c6f4
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38496727421601,78.48673327473341,Hyderabad Hub,Potholes,0.71,medium,video,Pending,f16ca43d
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384970010119392,78.48677664756292,Hyderabad Hub,Longitudinal Crack,0.56,medium,video,Pending,8bd98c28
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384938585525088,78.48668977555222,Hyderabad Hub,Longitudinal Crack,0.4,low,video,Pending,d458ccfe
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.385036065977392,78.48665808990327,Hyderabad Hub,Potholes,0.28,low,video,Pending,f4912d8c
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38498033060125,78.48672881960294,Hyderabad Hub,Longitudinal Crack,0.2,low,video,Pending,fc5cf72b
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38500815237617,78.4866599451604,Hyderabad Hub,Potholes,0.78,medium,video,Pending,5d3b5069
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38493547274287,78.48662890479466,Hyderabad Hub,Longitudinal Crack,0.39,low,video,Pending,a2c9fc93
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384939868940098,78.48675449576389,Hyderabad Hub,Potholes,0.73,medium,video,Pending,59ba925c
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384983933196427,78.48673170467988,Hyderabad Hub,Potholes,0.29,low,video,Pending,2211a36b
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38507175879676,78.48665679491938,Hyderabad Hub,Longitudinal Crack,0.21,low,video,Pending,e7779951
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384947258732385,78.48673585288762,Hyderabad Hub,Potholes,0.76,medium,video,Pending,1f23b921
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.385023172359723,78.48677563556413,Hyderabad Hub,Potholes,0.68,medium,video,Pending,9aef44ff
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384953454180245,78.48672161841561,Hyderabad Hub,Potholes,0.34,low,video,Pending,19715381
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38502748905736,78.48678565473303,Hyderabad Hub,Potholes,0.33,low,video,Pending,5787a24c
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384901648056868,78.48672477164646,Hyderabad Hub,Potholes,0.17,low,video,Pending,456967ad
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38493557809969,78.48674120870135,Hyderabad Hub,Potholes,0.87,high,video,Pending,6f2174f7
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.385049364962445,78.48666663298997,Hyderabad Hub,Potholes,0.18,low,video,Pending,c6b05c08
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.385023957261527,78.48676467701958,Hyderabad Hub,Alligator Crack,0.16,low,video,Pending,eb452c9c
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38495360682577,78.48673019709463,Hyderabad Hub,Transverse Crack,0.16,low,video,Pending,7eae0b6e
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38494470359162,78.48662466556003,Hyderabad Hub,Potholes,0.81,high,video,Pending,af98bdf8
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38508024924003,78.48666913761309,Hyderabad Hub,Potholes,0.19,low,video,Pending,835a6177
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38496982328642,78.48673617904993,Hyderabad Hub,Potholes,0.16,low,video,Pending,c8390f3a
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.385030772676714,78.48675914769673,Hyderabad Hub,Potholes,0.16,low,video,Pending,cda3df2c
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38506552466867,78.48661777788755,Hyderabad Hub,Transverse Crack,0.16,low,video,Pending,c0c12ff8
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384952595803718,78.4867230229927,Hyderabad Hub,Potholes,0.84,high,video,Pending,5b533ab7
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384936470494225,78.48671821263333,Hyderabad Hub,Potholes,0.19,low,video,Pending,42bcd3b1
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.385040079549643,78.48675342325625,Hyderabad Hub,Longitudinal Crack,0.18,low,video,Pending,6db83912
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384981476648317,78.48662715320062,Hyderabad Hub,Longitudinal Crack,0.18,low,video,Pending,e567fa6d
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38508277306063,78.48676469111844,Hyderabad Hub,Transverse Crack,0.15,low,video,Pending,7263ae73
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.385006902600196,78.48668810924528,Hyderabad Hub,Longitudinal Crack,0.37,low,video,Pending,7752576e
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38505060704388,78.4867766701175,Hyderabad Hub,Potholes,0.21,low,video,Pending,5cbaf04a
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.385002728263377,78.48671003752666,Hyderabad Hub,Potholes,0.2,low,video,Pending,a308594f
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384941556916445,78.48668440584677,Hyderabad Hub,Potholes,0.19,low,video,Pending,f7a1953a
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38501220921095,78.48665891663713,Hyderabad Hub,Potholes,0.15,low,video,Pending,1ccfeac2
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.385051151497215,78.48671926376149,Hyderabad Hub,Potholes,0.63,medium,video,Pending,a762b43d
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38495690668923,78.48666833447209,Hyderabad Hub,Longitudinal Crack,0.61,medium,video,Pending,312cc5a4
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38493875526156,78.48666961789253,Hyderabad Hub,Potholes,0.37,low,video,Pending,10f7725d
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384920974630333,78.48677521119014,Hyderabad Hub,Potholes,0.28,low,video,Pending,a067e080
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384900787780275,78.48664253280401,Hyderabad Hub,Potholes,0.2,low,video,Pending,82a9dbc5
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384937755115715,78.48663945823245,Hyderabad Hub,Longitudinal Crack,0.5,medium,video,Pending,94946f6c
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.3850309810332,78.48668860765434,Hyderabad Hub,Potholes,0.5,low,video,Pending,add7689d
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384955738570223,78.48669672607261,Hyderabad Hub,Longitudinal Crack,0.43,low,video,Pending,db90107c
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384989671809578,78.48670270502858,Hyderabad Hub,Potholes,0.23,low,video,Pending,4d94af59
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.385091188055625,78.48672372416821,Hyderabad Hub,Transverse Crack,0.16,low,video,Pending,446c03a1
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38497637288371,78.48662717128582,Hyderabad Hub,Longitudinal Crack,0.48,low,video,Pending,6ec3987c
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384984859129812,78.4867862379174,Hyderabad Hub,Potholes,0.43,low,video,Pending,ec589eda
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384980940178487,78.48664544669359,Hyderabad Hub,Potholes,0.41,low,video,Pending,652ab749
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384990612776573,78.48676065045802,Hyderabad Hub,Longitudinal Crack,0.32,low,video,Pending,ac50f9eb
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384927879010128,78.48667672066053,Hyderabad Hub,Potholes,0.18,low,video,Pending,a0325b0c
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384963539521564,78.48665308145901,Hyderabad Hub,Potholes,0.17,low,video,Pending,42450017
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38502957603704,78.48666617180656,Hyderabad Hub,Transverse Crack,0.17,low,video,Pending,de59fe97
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.385038543662734,78.48674275251345,Hyderabad Hub,Potholes,0.16,low,video,Pending,f51bcb2a
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38496045348307,78.48675764084814,Hyderabad Hub,Transverse Crack,0.16,low,video,Pending,499aae6f
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.385083208182728,78.48668941498174,Hyderabad Hub,Potholes,0.45,low,video,Pending,3cf0d112
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38490389455042,78.48663459939173,Hyderabad Hub,Potholes,0.35,low,video,Pending,1bd9b25f
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.385016412659937,78.4866090409218,Hyderabad Hub,Potholes,0.34,low,video,Pending,52f8554b
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38496406946641,78.48677606434575,Hyderabad Hub,Potholes,0.28,low,video,Pending,576f970f
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.385001319843937,78.48670634533022,Hyderabad Hub,Potholes,0.21,low,video,Pending,a40684d0
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38505152460004,78.48674353836056,Hyderabad Hub,Potholes,0.2,low,video,Pending,64241f1f
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384972070894552,78.48660155332924,Hyderabad Hub,Potholes,0.16,low,video,Pending,2dd69403
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.3849704537608,78.48662177889955,Hyderabad Hub,Potholes,0.16,low,video,Pending,f6db280c
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38505069351953,78.48662279074313,Hyderabad Hub,Potholes,0.3,low,video,Pending,3378be53
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384959100389775,78.48671423073033,Hyderabad Hub,Potholes,0.29,low,video,Pending,90edaf5f
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38499812366799,78.48678291274418,Hyderabad Hub,Potholes,0.24,low,video,Pending,279fa832
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38505584786517,78.48664635608434,Hyderabad Hub,Transverse Crack,0.21,low,video,Pending,9cdae916
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38508932357861,78.48668320741376,Hyderabad Hub,Transverse Crack,0.2,low,video,Pending,bb3a7eea
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38499860534045,78.48663138297633,Hyderabad Hub,Potholes,0.19,low,video,Pending,c040d18a
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384928352035047,78.48678661421306,Hyderabad Hub,Potholes,0.16,low,video,Pending,27ca277f
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384955830677317,78.48664695267003,Hyderabad Hub,Potholes,0.42,low,video,Pending,e9ed43ac
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384988675148954,78.48669742425396,Hyderabad Hub,Potholes,0.3,low,video,Pending,14b24844
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.385021116433393,78.4866038400389,Hyderabad Hub,Potholes,0.3,low,video,Pending,c7f190a6
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.385065837322664,78.486754206048,Hyderabad Hub,Transverse Crack,0.16,low,video,Pending,79fcf318
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.385013183111834,78.48668867203058,Hyderabad Hub,Potholes,0.15,low,video,Pending,f524d02f
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.385022613623658,78.48663900634487,Hyderabad Hub,Longitudinal Crack,0.53,medium,video,Pending,37fda87a
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38496003194818,78.48665452022672,Hyderabad Hub,Transverse Crack,0.45,low,video,Pending,8fc2266c
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384942298302253,78.48675360212093,Hyderabad Hub,Longitudinal Crack,0.29,low,video,Pending,a229c287
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.384953910142197,78.48678491622454,Hyderabad Hub,Potholes,0.22,low,video,Pending,8b1bcb75
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.385059483500726,78.48669827388093,Hyderabad Hub,Potholes,0.25,low,video,Pending,2cb5cfc5
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38493601229464,78.48663012628829,Hyderabad Hub,Potholes,0.16,low,video,Pending,cd7974ea
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.385040916628313,78.4866441792683,Hyderabad Hub,Potholes,0.17,low,video,Pending,3a853b7b
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.385006136497157,78.48661093535902,Hyderabad Hub,Potholes,0.2,low,video,Pending,be23668d
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.385013897963645,78.48676967288417,Hyderabad Hub,Alligator Crack,0.19,low,video,Pending,f2c0fc49
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.385047430042157,78.48673262441638,Hyderabad Hub,Potholes,0.18,low,video,Pending,89c608ee
+Watch Video_ Terrible potholes in Rangoon Road.mp4,17.38505845159055,78.48677491171989,Hyderabad Hub,Potholes,0.4,low,video,Pending,cc3ff71c

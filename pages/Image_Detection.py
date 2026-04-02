@@ -66,7 +66,7 @@ col_menu_1, col_menu_2 = st.columns([2, 1])
 with col_menu_1:
     st.markdown("### <i class='fa-solid fa-file-image'></i> Source Asset", unsafe_allow_html=True)
     image_file = st.file_uploader("Upload Image (PNG/JPG)", type=['png', 'jpg'])
-    score_threshold = st.slider("Neural Confidence Threshold", 0.0, 1.0, 0.3, 0.05)
+    score_threshold = st.slider("Neural Confidence Threshold", 0.0, 1.0, 0.15, 0.05)
 
 with col_menu_2:
     st.markdown("### <i class='fa-solid fa-location-crosshairs'></i> Spatial Metadata", unsafe_allow_html=True)
@@ -80,8 +80,8 @@ if image_file:
     image = Image.open(image_file)
     _image = np.array(image)
 
-    resized = cv2.resize(_image, (640, 640))
-    results = net.predict(resized, conf=score_threshold)
+    # Deploy Test-Time Augmentation (TTA) for maximum recall of obscure hazards
+    results = net.predict(image, conf=score_threshold, augment=True)
 
     rhi = 100
     cost = 0
@@ -92,13 +92,16 @@ if image_file:
         writer = csv.writer(f)
         writer.writerow(header)
 
+    annotated_rgb = _image.copy()
     if len(results[0].boxes) > 0:
         for r in results:
             for b in r.boxes.cpu().numpy():
                 cls = int(b.cls[0])
                 conf = float(b.conf[0])
                 x1, y1, x2, y2 = b.xyxy[0]
-                area = (x2 - x1) * (y2 - y1) / 1000
+                box_w = (x2 - x1) * (640.0 / _image.shape[1])
+                box_h = (y2 - y1) * (640.0 / _image.shape[0])
+                area = box_w * box_h / 1000
 
                 if cls == 3: # Pothole
                     if area < 5: c, impact = 1500, 8
@@ -117,6 +120,14 @@ if image_file:
 
                 log_detection(image_file.name, jitter_lat, jitter_lon, location_label, CLASSES[cls], conf, "image")
 
+                # Custom bounding box overrides
+                color = (255, 20, 147) if cls == 3 else (255, 0, 0) # DeepPink for pothole, Red for others (RGB format)
+                cv2.rectangle(annotated_rgb, (int(x1), int(y1)), (int(x2), int(y2)), color, 3)
+                label = f"{CLASSES[cls]} {conf:.2f}"
+                (txt_w, txt_h), _ = cv2.getTextSize(label, cv2.FONT_HERSHEY_SIMPLEX, 0.6, 2)
+                cv2.rectangle(annotated_rgb, (int(x1), int(y1) - txt_h - 10), (int(x1) + txt_w, int(y1)), color, -1)
+                cv2.putText(annotated_rgb, label, (int(x1), int(y1) - 5), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 255), 2)
+
         rhi = max(rhi, 0)
         
         st.markdown("### <i class='fa-solid fa-microchip'></i> Analysis Telemetry", unsafe_allow_html=True)
@@ -130,11 +141,7 @@ if image_file:
 
     st.divider()
 
-    annotated = results[0].plot()
-    annotated = cv2.resize(annotated, (_image.shape[1], _image.shape[0]))
-    annotated_rgb = cv2.cvtColor(annotated, cv2.COLOR_BGR2RGB)
-
-    st.subheader("<i class='fa-solid fa-swatchbook'></i> Interactive Forensics Slider", unsafe_allow_html=True)
+    st.markdown("### <i class='fa-solid fa-swatchbook'></i> Interactive Forensics Slider", unsafe_allow_html=True)
     
     # Image Comparison Slider
     image_comparison(
@@ -142,7 +149,7 @@ if image_file:
         img2=Image.fromarray(annotated_rgb),
         label1="RAW SOURCE",
         label2="AI ANALYTICS",
-        width=None,
+        width=700,
         make_responsive=True,
         starting_position=50,
         show_labels=True
